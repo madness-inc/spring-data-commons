@@ -101,6 +101,14 @@ abstract class Chunk<T> implements Slice<T>, Serializable {
 
 	/* 
 	 * (non-Javadoc)
+	 * @see org.springframework.data.domain.Slice#pageable()
+	 */
+	public Pageable pageable() {
+		return pageable;
+	}
+
+	/* 
+	 * (non-Javadoc)
 	 * @see org.springframework.data.domain.Slice#nextPageable()
 	 */
 	public Pageable nextPageable() {

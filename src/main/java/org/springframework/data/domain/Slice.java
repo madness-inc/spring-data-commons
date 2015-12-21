@@ -99,6 +99,12 @@ public interface Slice<T> extends Iterable<T> {
 	boolean hasPrevious();
 
 	/**
+	 * Returns the {@link Pageable} for this {@link Slice}.
+	 * @return
+	 */
+	Pageable pageable();
+
+	/**
 	 * Returns the {@link Pageable} to request the next {@link Slice}. Can be {@literal null} in case the current
 	 * {@link Slice} is already the last one. Clients should check {@link #hasNext()} before calling this method to make
 	 * sure they receive a non-{@literal null} value.

@@ -68,6 +68,20 @@ public class PageImplUnitTests {
 	}
 
 	@Test
+	public void returnsPageable() {
+
+		Page<Object> page = new PageImpl<Object>(Arrays.asList(new Object()), new PageRequest(0, 1), 10);
+
+		assertThat(page.isFirst(), is(true));
+		assertThat(page.hasPrevious(), is(false));
+		assertThat(page.previousPageable(), is(nullValue()));
+
+		assertThat(page.isLast(), is(false));
+		assertThat(page.hasNext(), is(true));
+		assertThat(page.pageable(), is((Pageable) new PageRequest(0, 1)));
+	}
+
+	@Test
 	public void returnsNextPageable() {
 
 		Page<Object> page = new PageImpl<Object>(Arrays.asList(new Object()), new PageRequest(0, 1), 10);
